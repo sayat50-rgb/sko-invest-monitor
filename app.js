@@ -66,6 +66,16 @@ function renderDistricts(){
 }
 
 const csvColumns=['district','population','priority_sites','ready_sites','qualified_contacts','meetings','project_passports','decisions','projects_launched','planned_private_investment_mln','actual_private_investment_mln','manufacturing_investment_mln','median_response_days','projects_on_time','jobs_created','issues_total','issues_resolved','local_suppliers'];
+const SUPABASE_URL='https://smqiitmcjmbjdvgubeyq.supabase.co';
+const SUPABASE_KEY='sb_publishable_UHXOC3ie1pB230ELkCRLqw_hVDpnPA8';
+async function syncOperationalToSupabase(rows){
+  if(!rows.length)return;
+  const payload=rows.map(r=>({year:state.year,district:r.district,priority_sites:r.priority_sites,ready_sites:r.ready_sites,qualified_contacts:r.qualified_contacts,launched_projects:r.projects_launched,private_investment_bn:r.actual_private_investment_mln!=null?r.actual_private_investment_mln/1000:null,investment_plan_bn:r.planned_private_investment_mln!=null?r.planned_private_investment_mln/1000:null,resolved_questions:r.issues_resolved,jobs_created:r.jobs_created}));
+  const res=await fetch(`${SUPABASE_URL}/rest/v1/district_work_data?on_conflict=year,district`,{method:'POST',headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${SUPABASE_KEY}`, 'Content-Type':'application/json',Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify(payload)});
+  if(!res.ok)throw new Error('Supabase: '+await res.text());
+}
+async function loadOperationalFromSupabase(){
+  try{const res=await fetch(`${SUPABASE_URL}/rest/v1/district_work_data?select=*&year=eq.${state.year}`,{headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${SUPABASE_KEY}`}});if(!res.ok)return;const rows=await res.json();if(!rows.length)return;state.operational=rows.map(r=>({district:r.district,population:null,priority_sites:r.priority_sites,ready_sites:r.ready_sites,qualified_contacts:r.qualified_contacts,meetings:null,project_passports:null,decisions:null,projects_launched:r.launched_projects,planned_private_investment_mln:r.investment_plan_bn==null?null:r.investment_plan_bn*1000,actual_private_investment_mln:r.private_investment_bn==null?null:r.private_investment_bn*1000,manufacturing_investment_mln:null,median_response_days:null,projects_on_time:null,jobs_created:r.jobs_created,issues_total:null,issues_resolved:r.resolved_questions,local_suppliers:null}));renderOperational()}catch(e){console.warn(e)}}
 function downloadTemplate(){const lines=[csvColumns.join(';'),...DATA.districts.map(d=>[d.name,...Array(csvColumns.length-1).fill('')].join(';'))],blob=new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='шаблон_районной_инвестиционной_воронки.csv';a.click();URL.revokeObjectURL(a.href)}
 function parseCsv(text){const lines=text.replace(/^\ufeff/,'').split(/\r?\n/).filter(Boolean),delim=(lines[0].match(/;/g)||[]).length>=(lines[0].match(/,/g)||[]).length?';':',',headers=lines[0].split(delim).map(x=>x.trim());if(!csvColumns.every(c=>headers.includes(c)))throw new Error('Структура файла не соответствует шаблону.');return lines.slice(1).map(line=>{const vals=line.split(delim),r={};headers.forEach((h,i)=>r[h]=(vals[i]||'').trim());csvColumns.slice(1).forEach(k=>r[k]=safe(String(r[k]).replace(',','.')));return r}).filter(r=>r.district)}
 function renderOperational(){
@@ -76,7 +86,7 @@ function renderOperational(){
 function setup(){
   const year=$('#yearSelect');year.innerHTML=DATA.region.map(r=>`<option value="${r.year}" ${r.year===state.year?'selected':''}>${r.year}${r.preliminary?'*':''}</option>`).join('');year.addEventListener('change',e=>{state.year=Number(e.target.value);renderKpis()});
   $('#presentationToggle').addEventListener('click',()=>{document.body.classList.toggle('presentation-mode');$('#presentationToggle').textContent=document.body.classList.contains('presentation-mode')?'Полный режим':'Режим защиты'});
-  $('#templateDownload').addEventListener('click',downloadTemplate);$('#uploadButton').addEventListener('click',()=>$('#csvInput').click());$('#csvInput').addEventListener('change',async e=>{try{state.operational=parseCsv(await e.target.files[0].text());renderOperational()}catch(err){$('#importStatus').textContent=err.message}});
-  renderKpis();renderCharts();renderInsights();renderDistricts();renderOperational();$('#updated').textContent=DATA.meta.updated
+  $('#templateDownload').addEventListener('click',downloadTemplate);$('#uploadButton').addEventListener('click',()=>$('#csvInput').click());$('#csvInput').addEventListener('change',async e=>{try{state.operational=parseCsv(await e.target.files[0].text());renderOperational();await syncOperationalToSupabase(state.operational);$('#importStatus').textContent+=` · сохранено в Supabase (${state.year})`}catch(err){$('#importStatus').textContent=err.message}});
+  renderKpis();renderCharts();renderInsights();renderDistricts();renderOperational();loadOperationalFromSupabase();$('#updated').textContent=DATA.meta.updated
 }
 document.addEventListener('DOMContentLoaded',setup);
