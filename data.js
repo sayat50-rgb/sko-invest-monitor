@@ -1,0 +1,37 @@
+window.SKO_DATA = {
+  meta: { period: "2010–2025", completeYear: 2024, preliminaryYear: 2025, updated: "13 октября 2026 года" },
+  region: [
+    {year:2010,industry:85111.428,industryIndex:100.2,grp:466955.2,grpIndex:100.8,investment:51203.1,investmentIndex:99.5,industryInvestment:16243.9,manufacturingInvestment:5698.9,industryEmployment:20.6,totalEmployment:358.1,population:592184,industryProductivity:7564.6,industrySalary:50320,regionSalary:51689,industryGva:51304.3,manufacturingGva:39680.1},
+    {year:2011,industry:116097.065,industryIndex:107.1,grp:666595.6,grpIndex:116.4,investment:68990.4,investmentIndex:129.3,industryInvestment:16914.7,manufacturingInvestment:3544.2,industryEmployment:20.7,totalEmployment:346.3,population:588814,industryProductivity:9068.5,industrySalary:58589,regionSalary:61712,industryGva:65209.0,manufacturingGva:51888.6},
+    {year:2012,industry:125888.578,industryIndex:102.5,grp:679610.3,grpIndex:94.6,investment:97998.8,investmentIndex:136.3,industryInvestment:31954.1,manufacturingInvestment:9743.1,industryEmployment:22.0,totalEmployment:331.2,population:583165,industryProductivity:9303.1,industrySalary:66182.3,regionSalary:68920.5,industryGva:72092.2,manufacturingGva:58609.8},
+    {year:2013,industry:150398.139,industryIndex:105.1,grp:749879.0,grpIndex:107.7,investment:101758.5,investmentIndex:100.3,industryInvestment:21986.3,manufacturingInvestment:3048.2,industryEmployment:22.1,totalEmployment:329.3,population:579080,industryProductivity:9609.9,industrySalary:77311,regionSalary:74853,industryGva:85436.2,manufacturingGva:69646.6},
+    {year:2014,industry:161201.359,industryIndex:103.2,grp:795551.2,grpIndex:105.8,investment:116943.0,investmentIndex:110.5,industryInvestment:26955.1,manufacturingInvestment:5074.9,industryEmployment:21.1,totalEmployment:313.8,population:575314,industryProductivity:9918.6,industrySalary:84930.9,regionSalary:81061.9,industryGva:93621.6,manufacturingGva:74383.4},
+    {year:2015,industry:166903.722,industryIndex:101.1,grp:837179.9,grpIndex:101.0,investment:155431.0,investmentIndex:129.2,industryInvestment:30006.3,manufacturingInvestment:4829.9,industryEmployment:22.5,totalEmployment:312.8,population:571189,industryProductivity:9381.4,industrySalary:94582.6,regionSalary:84324.1,industryGva:98126.4,manufacturingGva:73262.7},
+    {year:2016,industry:198031.919,industryIndex:100.5,grp:918236.9,grpIndex:100.8,investment:167066.2,investmentIndex:105.1,industryInvestment:49767.0,manufacturingInvestment:16935.1,industryEmployment:24.0,totalEmployment:303.0,population:568920,industryProductivity:11279.0,industrySalary:105345,regionSalary:97344,industryGva:123691.7,manufacturingGva:94805.0},
+    {year:2017,industry:240530.371,industryIndex:108.5,grp:1113959.4,grpIndex:103.1,investment:191689.5,investmentIndex:113.1,industryInvestment:50657.2,manufacturingInvestment:21313.7,industryEmployment:23.7,totalEmployment:295.2,population:562583,industryProductivity:13390.0,industrySalary:116755,regionSalary:104139,industryGva:157355.2,manufacturingGva:117439.6},
+    {year:2018,industry:243039.1,industryIndex:101.9,grp:1212007.8,grpIndex:103.2,investment:214181.2,investmentIndex:109.1,industryInvestment:45748.2,manufacturingInvestment:18726.4,industryEmployment:24.0,totalEmployment:296.2,population:557917,industryProductivity:15869.8,industrySalary:128323,regionSalary:110686,industryGva:160189.3,manufacturingGva:117267.2},
+    {year:2019,industry:263575.975,industryIndex:103.9,grp:1382322.2,grpIndex:102.1,investment:234490.1,investmentIndex:108.3,industryInvestment:31792.9,manufacturingInvestment:14035.7,industryEmployment:24.1,totalEmployment:293.4,population:553853,industryProductivity:17494.4,industrySalary:143143,regionSalary:130233,industryGva:176079.9,manufacturingGva:134595.6},
+    {year:2020,industry:315516.099,industryIndex:105.1,grp:1571903.6,grpIndex:99.8,investment:286251.507,investmentIndex:122.3,industryInvestment:52582.9,manufacturingInvestment:24441.2,industryEmployment:24.1,totalEmployment:289.3,population:548092,industryProductivity:17533.8,industrySalary:157560,regionSalary:157497,industryGva:221807.9,manufacturingGva:175739.5},
+    {year:2021,industry:394666.234,industryIndex:107.2,grp:1790770.4,grpIndex:101.0,investment:333149.4,investmentIndex:110.5,industryInvestment:42098.1,manufacturingInvestment:23232.0,industryEmployment:23.8,totalEmployment:287.3,population:543088,industryProductivity:22625.4,industrySalary:192405,regionSalary:187501,industryGva:262035.3,manufacturingGva:207007.9},
+    {year:2022,industry:519686.104,industryIndex:104.6,grp:2198854.3,grpIndex:105.6,investment:368460.4,investmentIndex:104.1,industryInvestment:53531.5,manufacturingInvestment:23086.2,industryEmployment:25.2,totalEmployment:279.078,population:539111,industryProductivity:27509.0,industrySalary:233522,regionSalary:227021,industryGva:355502.7,manufacturingGva:298752.7},
+    {year:2023,industry:674861.898,industryIndex:114.4,grp:2429200.9,grpIndex:99.3,investment:443683.8,investmentIndex:116.8,industryInvestment:62475.4,manufacturingInvestment:32321.2,industryEmployment:24.9,totalEmployment:274.53,population:534104,industryProductivity:28544.5,industrySalary:246697,regionSalary:262248,industryGva:462102.8,manufacturingGva:394417.7},
+    {year:2024,industry:714237.373,industryIndex:104.6,grp:2621212.1,grpIndex:113.7,investment:565406.7,investmentIndex:125.9,industryInvestment:111688.1,manufacturingInvestment:56635.1,industryEmployment:23.6,totalEmployment:267.702,population:530089,industryProductivity:30849.3,industrySalary:296779,regionSalary:293421,industryGva:470572.2,manufacturingGva:395136.3},
+    {year:2025,industry:942366.56,industryIndex:109.7,grp:3053960.1,grpIndex:106.2,investment:608990.679,investmentIndex:103.9,industryInvestment:171036.64,manufacturingInvestment:65127.344,industryEmployment:null,totalEmployment:254.945,population:514200,industryProductivity:null,industrySalary:351938,regionSalary:null,industryGva:null,manufacturingGva:null,preliminary:true}
+  ],
+  districts: [
+    {id:"petropavl",name:"Петропавловск",type:"город",processing2024:415.9,processingShare2024:68.5},
+    {id:"ayyrtau",name:"Айыртауский район",type:"район",processing2024:null,processingShare2024:null},
+    {id:"akzhar",name:"Акжарский район",type:"район",processing2024:null,processingShare2024:null},
+    {id:"akkayyn",name:"Аккайынский район",type:"район",processing2024:null,processingShare2024:null},
+    {id:"esil",name:"Есильский район",type:"район",processing2024:null,processingShare2024:null},
+    {id:"zhambyl",name:"Жамбылский район",type:"район",processing2024:null,processingShare2024:null},
+    {id:"kyzylzhar",name:"Кызылжарский район",type:"район",processing2024:32.7,processingShare2024:5.4},
+    {id:"mamlyut",name:"Мамлютский район",type:"район",processing2024:null,processingShare2024:null},
+    {id:"magzhan",name:"Район Магжана Жумабаева",type:"район",processing2024:null,processingShare2024:null},
+    {id:"tayynsha",name:"Тайыншинский район",type:"район",processing2024:52.3,processingShare2024:8.6},
+    {id:"timiryazev",name:"Тимирязевский район",type:"район",processing2024:null,processingShare2024:null},
+    {id:"ualikhanov",name:"Уалихановский район",type:"район",processing2024:null,processingShare2024:null},
+    {id:"shal",name:"Район Шал акына",type:"район",processing2024:null,processingShare2024:null},
+    {id:"musrepov",name:"Район имени Габита Мусрепова",type:"район",processing2024:47.3,processingShare2024:7.8}
+  ]
+};

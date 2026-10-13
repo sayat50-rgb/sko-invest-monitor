@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Интерактивный монитор промышленного развития и районной работы по привлечению инвестиций в Северо-Казахстанской области." />
+  <title>Инвестиционный монитор СКО</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Перейти к содержанию</a>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">СКО</span><span>Инвестиционный монитор<small>промышленность и территории</small></span></div>
+    <nav class="nav" aria-label="Основная навигация"><a href="#region">Область</a><a href="#districts">Районы</a><a href="#management">Работа акиматов</a><a href="#method">Методология</a></nav>
+    <button id="presentationToggle" class="button secondary" type="button">Режим защиты</button>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Магистерский проект · рабочий аналитический инструмент</p>
+        <h1>Инвестиции, промышленность и результаты районов СКО</h1>
+        <p class="hero-lead">Монитор показывает долгосрочную динамику с 2010 года и помогает отделить инвестиционный потенциал территории от работы акимата по поиску и сопровождению проектов.</p>
+        <div class="logic" aria-label="Логика исследования"><span>Инвестиции</span><b>→</b><span>Промышленный рост</span><b>→</b><span>Экономический эффект</span></div>
+      </div>
+      <aside class="hero-card">
+        <h2>Контекст исследования</h2>
+        <div class="hero-stat"><div><strong>2010–2025</strong><span>временной ряд области</span></div><div><strong>14</strong><span>территорий, включая Петропавловск</span></div><div><strong>2 контура</strong><span>потенциал и результативность</span></div><div><strong>5 блоков</strong><span>районной оценки</span></div></div>
+        <p class="status-note">2025 год содержит предварительные и неполные значения. Для строгого сопоставления используется 2024 год.</p>
+      </aside>
+    </section>
+
+    <section id="region" class="section">
+      <div class="section-head"><div><p class="eyebrow">Контур 1</p><h2>Экономика области</h2><p>Показатели из материалов магистерского проекта, собранных на основе официальной статистики.</p></div><div class="control-row"><label class="control">Год <select id="yearSelect" aria-label="Выберите год"></select></label><span class="pill" id="yearStatus"></span></div></div>
+      <div id="kpiGrid" class="kpi-grid"></div>
+      <div class="grid-2" style="margin-top:18px">
+        <article class="panel"><h3>Инвестиции и промышленный выпуск</h3><p class="panel-sub">Номинальные значения, млрд тенге. 2025 год отмечен как предварительный.</p><div id="trendChart" class="chart"></div></article>
+        <article class="panel"><h3>Что изменилось с 2010 года</h3><p class="panel-sub">Ключевые наблюдения для доклада и управленческого обсуждения.</p><div id="insightList" class="insight-list"></div></article>
+      </div>
+      <div class="grid-2" style="margin-top:18px">
+        <article class="panel"><h3>Инвестиции и выпуск: статистическая связь</h3><p class="panel-sub">Каждая точка — отдельный год, 2010–2024.</p><div id="scatterChart" class="chart"></div></article>
+        <article class="panel"><h3>Корреляция</h3><p class="panel-sub">Коэффициент Пирсона для номинальных годовых уровней.</p><div class="correlation-card"><div id="correlationValue" class="correlation-value">—</div><p id="correlationText"></p></div><div class="notice" style="margin-top:18px">Корреляция описывает совместную динамику. Она не отделяет инфляцию, общий тренд и лаг между вложениями и запуском производства.</div></article>
+      </div>
+    </section>
+
+    <section id="districts" class="section">
+      <div class="section-head"><div><p class="eyebrow">Территориальный разрез</p><h2>Промышленная концентрация</h2><p>Схема показывает доступные в материалах значения выпуска обрабатывающей промышленности за 2024 год. Отсутствующие данные не заменяются оценками.</p></div></div>
+      <div class="district-layout"><div id="districtGrid" class="district-grid" aria-label="Территории Северо-Казахстанской области"></div><aside class="panel district-detail"><p class="eyebrow" id="districtType"></p><h3 id="districtTitle"></h3><div class="district-metric"><span>Выпуск обработки, 2024</span><strong id="districtOutput">—</strong></div><div class="district-metric"><span>Доля областного выпуска</span><strong id="districtShare">—</strong></div><p class="district-note" id="districtDataNote"></p></aside></div>
+      <div class="panel" style="margin-top:18px"><h3>Концентрация инвестиций районов</h3><p class="panel-sub">Оперативные данные за январь–август 2026 года, без Петропавловска. Показаны опубликованные в работе агрегированные оценки.</p><div class="concentration-grid"><div class="concentration"><strong>48,0%</strong><span>доля четырёх районов в общих инвестициях; HHI 0,091</span></div><div class="concentration"><strong>93,6%</strong><span>доля четырёх районов в инвестициях в обработку; HHI 0,259</span></div><div class="concentration"><strong>93,3%</strong><span>доля четырёх районов во внешних источниках; HHI 0,538</span></div></div></div>
+    </section>
+
+    <section id="management" class="section">
+      <div class="section-head"><div><p class="eyebrow">Контур 2</p><h2>Работа районных акиматов</h2><p>Оценка строится по этапам инвестиционной воронки. Она не смешивает исходный потенциал района с действиями местного исполнительного органа.</p></div><span id="importStatus" class="pill warn">Данные не загружены</span></div>
+      <div class="workflow" aria-label="Этапы инвестиционной воронки"><div class="stage">Контакт</div><div class="stage">Встреча</div><div class="stage">Визит</div><div class="stage">Паспорт проекта</div><div class="stage">Решение</div><div class="stage">Запуск</div></div>
+      <div class="import-zone"><div><h3>Загрузить рабочие данные</h3><p>CSV обрабатывается только в браузере и никуда не отправляется. Сначала скачайте шаблон, заполните его и загрузите обратно.</p></div><div class="import-actions"><button id="templateDownload" class="button ghost" type="button">Скачать шаблон</button><button id="uploadButton" class="button" type="button">Загрузить CSV</button><input id="csvInput" class="file-input" type="file" accept=".csv,text/csv" /></div></div>
+      <div class="panel" style="margin-top:18px;overflow:hidden"><h3>Сравнительная матрица районов</h3><p class="panel-sub">Единый итоговый балл намеренно не рассчитывается: веса должны быть согласованы после пилотного периода.</p><table class="score-table"><thead><tr><th>Территория</th><th>Готовность площадок</th><th>Ответ</th><th>Конверсия в запуск</th><th>Инвестиции факт/план</th><th>Частные инвестиции на жителя</th><th>Решённые вопросы</th><th>Рабочие места</th></tr></thead><tbody id="scoreBody"></tbody></table></div>
+    </section>
+
+    <section id="method" class="section">
+      <div class="section-head"><div><p class="eyebrow">Методология</p><h2>Пять блоков районной оценки</h2><p>Методика воспроизводит предложение магистерского проекта и поддерживает управленческую диагностику, а не формальный рейтинг.</p></div></div>
+      <div class="method-grid"><div class="method-card"><b>1. Готовность территории</b><p>Площадки, земля, мощности, транспорт, кадры и сырьевая база.</p></div><div class="method-card"><b>2. Адресное привлечение</b><p>Контакты, инициативные обращения, предложения и скорость ответа.</p></div><div class="method-card"><b>3. Конверсия воронки</b><p>Переходы между стадиями, длительность и причины прекращения.</p></div><div class="method-card"><b>4. Реализация</b><p>Частный капитал, дорожная карта, ввод мощностей и рабочие места.</p></div><div class="method-card"><b>5. Местный эффект</b><p>Повторные инвестиции, решённые вопросы, поставщики и занятость.</p></div></div>
+      <div class="sources methodology-extra" style="margin-top:22px"><article class="panel"><h3>Источники</h3><ul class="source-list"><li><a href="https://stat.gov.kz/ru/region/sko/dynamic-tables/291541/" target="_blank" rel="noreferrer">Основные показатели по СКО и районам</a></li><li><a href="https://stat.gov.kz/ru/region/sko/dynamic-tables/52/" target="_blank" rel="noreferrer">Промышленное производство СКО</a></li><li><a href="https://stat.gov.kz/ru/region/sko/dynamic-tables/5261/" target="_blank" rel="noreferrer">Инвестиционная статистика СКО</a></li><li><a href="https://stat.gov.kz/ru/region/sko/spreadsheets/" target="_blank" rel="noreferrer">Электронные таблицы региона</a></li></ul></article><article class="panel"><h3>Ограничения интерпретации</h3><div class="notice">Объём инвестиций зависит от размера района, инфраструктуры, действующих предприятий и решений частного бизнеса. Поэтому он не является прямой оценкой качества работы акима.</div><p class="panel-sub" style="margin-top:16px">Номинальные ряды не очищены от инфляции. 2025 год содержит предварительные значения. Районные оперативные показатели следует сравнивать внутри групп со сходными исходными условиями.</p></article></div>
+    </section>
+
+    <footer class="footer"><span>Инвестиционный монитор СКО · магистерский проект</span><span>Данные обновлены: <span id="updated"></span></span></footer>
+  </main>
+  <div id="tooltip" class="tooltip" role="status"></div>
+  <script src="data.js"></script><script src="app.js"></script>
+</body>
+</html>
